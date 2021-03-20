@@ -1,0 +1,87 @@
+-- Lab exercise: Using CREATE, ALTER, TRUNCATE, DROP
+-- Written by Franz A. Tapia Chaca
+-- on 20 March 2021
+
+-- Restarting the tables
+DROP TABLE PETSALE;
+DROP TABLE PET;
+
+-- Table 1 creation: PETSALE
+CREATE TABLE PETSALE(
+    ID INTEGER NOT NULL,
+    PET CHAR(20),
+    SALEPRICE DECIMAL(6,2),
+    PROFIT DECIMAL (6,2),
+    SALEDATE DATE
+  );
+
+-- Table 2 creation: PET
+CREATE TABLE PET(
+    ID INTEGER NOT NULL,
+    ANIMAL VARCHAR(20),
+    QUANTITY INTEGER
+  );
+
+-- Filling table PETSALE with data
+INSERT INTO PETSALE VALUES
+    (1,'Cat',450.09,100.47,'2018-05-29'),
+    (2,'Dog',666.66,150.76,'2018-06-01'),
+    (3,'Parrot',50.00,8.9,'2018-06-04'),
+    (4,'Hamster',60.60,12,'2018-06-11'),
+    (5,'Goldfish',48.48,3.5,'2018-06-14');
+    
+-- Filling table PET with data
+INSERT INTO PET VALUES
+    (1,'Cat',3),
+    (2,'Dog',4),
+    (3,'Hamster',2);
+
+-- Displaying both tables and their contents
+SELECT * FROM PETSALE;
+SELECT * FROM PET;
+
+-- Adding a column to table PETSALE
+ALTER TABLE PETSALE
+	ADD COLUMN QUANTITY INTEGER;
+
+SELECT * FROM PETSALE;
+
+-- Updating the data of table PETSALE column QUANTITY
+
+UPDATE PETSALE SET QUANTITY = 9 WHERE ID = 1;
+UPDATE PETSALE SET QUANTITY = 3 WHERE ID = 2;
+UPDATE PETSALE SET QUANTITY = 2 WHERE ID = 3;
+UPDATE PETSALE SET QUANTITY = 6 WHERE ID = 4;
+UPDATE PETSALE SET QUANTITY = 24 WHERE ID = 5;
+
+SELECT * FROM PETSALE;
+
+-- Droping the QUANTITY column from table PETSALE
+ALTER TABLE PETSALE
+	DROP COLUMN PROFIT;
+
+SELECT * FROM PETSALE;
+
+-- Changing the data type of column PET in table PETSALE
+ALTER TABLE PETSALE
+	ALTER COLUMN PET SET DATA TYPE VARCHAR(20);
+
+SELECT * FROM PETSALE;
+
+-- Renaming the column PET to ANIMAL in table PETSALE
+ALTER TABLE PETSALE
+	RENAME COLUMN PET TO ANIMAL;
+
+SELECT * FROM PETSALE;
+
+-- Removing all tuples from table PET
+SELECT * FROM PET;
+
+TRUNCATE TABLE PET IMMEDIATE;
+
+SELECT * FROM PET;
+
+-- Deleting table PET
+DROP TABLE PET;
+
+SELECT * FROM PET;

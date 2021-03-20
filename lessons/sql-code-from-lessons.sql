@@ -3,13 +3,14 @@
 /*##########
 # Contents #
 ##########*/
--- Statements: COUNT, DELETE, DISTINCT, INSERT, LIMIT, SELECT, UPDATE
+-- DDL Statements: CREATE, ALTER, TRUNCATE, DROP
+-- DML Statements: COUNT, DELETE, DISTINCT, INSERT, LIMIT, SELECT, UPDATE
 
 
 /*############
-# Statements #
+# DML Statements #
 ############*/
---(Using SanFranciscoFilmLocations Database):
+--(Using open source databases):
 
 --COUNT & WHERE
 	- SELECT COUNT(*) FROM FilmLocations;
